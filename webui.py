@@ -3,6 +3,9 @@
 import sys, os
 import logging
 
+http_proxy="http://127.0.0.1:7890"
+https_proxy=http_proxy
+
 logging.getLogger("numba").setLevel(logging.WARNING)
 logging.getLogger("markdown_it").setLevel(logging.WARNING)
 logging.getLogger("urllib3").setLevel(logging.WARNING)
@@ -131,7 +134,7 @@ def tts_fn(
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument(
-        "-m", "--model", default="./logs/as/G_8000.pth", help="path of your model"
+        "-m", "--model", default="./logs/test1/G_8000.pth", help="path of your model"
     )
     parser.add_argument(
         "-c",
@@ -140,7 +143,7 @@ if __name__ == "__main__":
         help="path of your config file",
     )
     parser.add_argument(
-        "--share", default=False, help="make link public", action="store_true"
+        "--share", default=True, help="make link public", action="store_true"
     )
     parser.add_argument(
         "-d", "--debug", action="store_true", help="enable DEBUG-LEVEL log"
@@ -220,5 +223,5 @@ if __name__ == "__main__":
             outputs=[text_output, audio_output],
         )
 
-    webbrowser.open("http://127.0.0.1:7860")
+    webbrowser.open("http://0.0.0.0:7860")
     app.launch(share=args.share)
