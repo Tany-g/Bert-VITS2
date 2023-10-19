@@ -134,7 +134,7 @@ def tts_fn(
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument(
-        "-m", "--model", default="./logs/genshin/G_4000.pth", help="path of your model"
+        "-m", "--model", default="./logs/genshin/G_60000.pth", help="path of your model"
     )
     parser.add_argument(
         "-c",
@@ -178,6 +178,7 @@ if __name__ == "__main__":
     speaker_ids = hps.data.spk2id
     speakers = list(speaker_ids.keys())
     languages = ["ZH", "JP"]
+    
     with gr.Blocks() as app:
         with gr.Row():
             with gr.Column():

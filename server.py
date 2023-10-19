@@ -56,7 +56,7 @@ def infer(text, sdp_ratio, noise_scale, noise_scale_w, length_scale, sid, langua
         tones = tones.to(dev).unsqueeze(0)
         lang_ids = lang_ids.to(dev).unsqueeze(0)
         bert = bert.to(dev).unsqueeze(0)
-        ja_bert = ja_bert.to(device).unsqueeze(0)
+        ja_bert = ja_bert.to(dev).unsqueeze(0)
         x_tst_lengths = torch.LongTensor([phones.size(0)]).to(dev)
         speakers = torch.LongTensor([hps.data.spk2id[sid]]).to(dev)
         audio = (
@@ -119,7 +119,7 @@ net_g = SynthesizerTrn(
 ).to(dev)
 _ = net_g.eval()
 
-_ = utils.load_checkpoint("logs/G_649000.pth", net_g, None, skip_optimizer=True)
+_ = utils.load_checkpoint("logs/genshin/G_60000.pth", net_g, None, skip_optimizer=True)
 
 
 @app.route("/")
@@ -168,3 +168,7 @@ def main():
             return Response(
                 ofp.getvalue(), mimetype="audio/mpeg" if fmt == "mp3" else "audio/ogg"
             )
+
+
+if __name__ == "__main__":
+    app.run()

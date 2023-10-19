@@ -1,8 +1,9 @@
 import os
 
 # 定义目标语言和名称列表
-names = [('keqing', 'ZH'), 
-         ('sllh', 'ZH')]
+names = [('keli', 'ZH'), 
+         ('kl_dal', 'ZH'),
+         ('zaoyou','ZH')]
 
 # 输出文件路径
 out_file = "filelists/genshin.list"

@@ -11,8 +11,9 @@
             "program": "${file}",
             "console": "integratedTerminal",
             "justMyCode": true,
-        //     "args": ["-c","./configs/config.json",
-        // ]
+            "args": ["-c","./configs/config.json",
+            "-m","genshin_2"
+        ]
         }
     ]
 }
