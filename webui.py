@@ -134,7 +134,7 @@ def tts_fn(
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument(
-        "-m", "--model", default="./logs/test1/G_8000.pth", help="path of your model"
+        "-m", "--model", default="./logs/genshin/G_4000.pth", help="path of your model"
     )
     parser.add_argument(
         "-c",
@@ -219,7 +219,7 @@ if __name__ == "__main__":
                 noise_scale_w,
                 length_scale,
                 language,
-            ],
+            ],  
             outputs=[text_output, audio_output],
         )
 
